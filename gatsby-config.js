@@ -1,9 +1,9 @@
 module.exports = {
   pathPrefix: `/dh`,
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Disney Heroes: Badge List`,
+    description: `Disney Heroes: Battle Mode; Badge Database`,
+    author: `pinkswall`,
   },
   plugins: [
     {
@@ -28,9 +28,51 @@ module.exports = {
         noheader: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        path: `${__dirname}/locales`,
+        languages: [
+          `en`,
+          `de`,
+          `fr`,
+          `es`,
+          `it`,
+          `pt`,
+          `ru`,
+          `ja`,
+          `ko`,
+          `zh-hans`,
+          `zh-hant`,
+        ],
+        defaultLanguage: `en`,
+
+        // you can pass any i18next options
+        // pass following options to allow message content as a key
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          keySeparator: false,
+          nsSeparator: false,
+        },
+        pages: [
+          {
+            matchPath: "/:lang?/blog/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["es"],
+          },
+          {
+            matchPath: "/preview",
+            languages: ["en"],
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
