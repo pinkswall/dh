@@ -1,4 +1,4 @@
-export const prop = (content: string): { [key: string]: string } => {
+export const prop = (content: string): object => {
   const lines = content.split("\n")
   const result: { [key: string]: string } = {}
   for (let i = 0; i < lines.length; i++) {
