@@ -1,6 +1,8 @@
-export const prop = (content: string): object => {
+const prop = (content: string) => {
   const lines = content.split("\n")
-  const result: { [key: string]: string } = {}
+  const result: {
+    [key: string]: string
+  } = {}
   for (let i = 0; i < lines.length; i++) {
     let currentLine = lines[i]
     if (currentLine == "" || currentLine[0] == "#") continue
@@ -8,5 +10,7 @@ export const prop = (content: string): object => {
     let value = currentLine.split(`=`)[1]
     result[key] = value
   }
-  return result
+  return JSON.stringify(result)
 }
+
+export default prop
