@@ -15,13 +15,15 @@ const files = [`Items`, `Units`, "Campaign"]
 const localesPath = `./src/data/locales`
 
 function data2json(readPath: string, writePath: string) {
-  console.log(`IN data2json FUNC: ${readPath}`)
+  console.log(`IN THE FUNC data2json`)
+  console.log(readPath)
+  console.log(`FUNC ENDED`)
   const content: string = fs.readFileSync(readPath, "utf8")
   const parsedContent = prop(content)
   fs.writeFileSync(writePath, parsedContent, "utf8")
 }
 
-exports.onPreBootstrap = () => {
+const test = () => {
   console.log("Start to generate locales!")
 
   for (let i = 0; i < langs.length; i++) {
@@ -47,17 +49,16 @@ exports.onPreBootstrap = () => {
       if (lang == "zh-hans") {
         const fileLang = `zh-Hans`
         if (file == "Campaign") {
+          console.log(`./src/data/${lang}/CampaignCJK_${fileLang}.properties`)
           data2json(
             `./src/data/${lang}/CampaignCJK_${fileLang}.properties`,
             `${localesPath}/${file}_${lang}.json`
           )
-          continue
         }
         data2json(
           `./src/data/${lang}/${file}_${fileLang}.properties`,
           `${localesPath}/${file}_${lang}.json`
         )
-        continue
       }
 
       if (lang == "zh-hant") {
@@ -67,13 +68,11 @@ exports.onPreBootstrap = () => {
             `./src/data/${lang}/CampaignCJK_${fileLang}.properties`,
             `${localesPath}/${file}_${lang}.json`
           )
-          continue
         }
         data2json(
           `./src/data/${lang}/${file}_${fileLang}.properties`,
           `${localesPath}/${file}_${lang}.json`
         )
-        continue
       }
 
       if (file === "Campaign") {
@@ -81,15 +80,15 @@ exports.onPreBootstrap = () => {
           `./src/data/${lang}/CampaignCJK_${lang}.properties`,
           `${localesPath}/${file}_${lang}.json`
         )
-        continue
       }
       data2json(
         `./src/data/${lang}/${file}_${lang}.properties`,
         `${localesPath}/${file}_${lang}.json`
       )
-      continue
     }
 
     console.log(`${lang} generated`)
   }
 }
+
+test()
