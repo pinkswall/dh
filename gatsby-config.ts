@@ -16,92 +16,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `tab`,
+        name: `data`,
         path: `${__dirname}/src/data`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `de`,
-        path: `${__dirname}/src/data/de`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `es`,
-        path: `${__dirname}/src/data/es`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `fr`,
-        path: `${__dirname}/src/data/fr`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `it`,
-        path: `${__dirname}/src/data/it`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `ja`,
-        path: `${__dirname}/src/data/ja`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `ko`,
-        path: `${__dirname}/src/data/ko`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pt`,
-        path: `${__dirname}/src/data/pt`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `ru`,
-        path: `${__dirname}/src/data/ru`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `zh-hans`,
-        path: `${__dirname}/src/data/zh-hans`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `zh-hant`,
-        path: `${__dirname}/src/data/zh-hant`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-csv`,
-      options: {
-        extensions: [`tab`],
-        delimiter: `\t`,
-        noheader: false,
-      },
-    },
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
-        path: `${__dirname}/locales`,
+        path: `${__dirname}/src/data/locales`,
         languages: [
           `en`,
           `de`,

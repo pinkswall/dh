@@ -3,8 +3,10 @@ import { useTranslation, Trans } from "react-i18next"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Badge = (NAME: string, DESC: string) => {
+const Badge = () => {
   const { t } = useTranslation()
+  const NAME = "YAS"
+  const DESC = "YES"
   return (
     <Layout>
       <SEO title={t(NAME)} />
