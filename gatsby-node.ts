@@ -6,6 +6,7 @@
 
 // You can delete this file if you're not using it
 
+import { CreatePagesArgs } from "gatsby"
 import { readFileSync, writeFileSync } from "fs"
 import path from "path"
 import prop from "./src/parser/prop"
@@ -121,19 +122,19 @@ exports.onPreBootstrap = () => {
   object2json(badges, `${dataPath}/badges.json`)
 
   console.log("prepared")
+
+  console.log(`Badges number: ${Object.keys(badges).length}`)
 }
 
-exports.createPages = async ({ actions }) => {
+export async function createPages({ actions }: CreatePagesArgs) {
   const { createPage } = actions
   const badges = json2object("./src/data/badges.json")
 
   for (let badge in badges) {
     createPage({
       path: badge,
-      component: path.resolve("./src/templates/Badge.tsx"),
-      context: {
-        slug: badge,
-      },
+      component: path.resolve("./src/templates/BadgeTemplate.tsx"),
+      context: badges[badge],
     })
   }
 }

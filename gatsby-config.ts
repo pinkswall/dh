@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: `/dh`,
   siteMetadata: {
-    title: `Disney Heroes: Badge List`,
+    title: `Disney Heroes: Badge Database`,
     description: `Disney Heroes: Battle Mode; Badge Database`,
     author: `pinkswall`,
   },
@@ -26,7 +26,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/data/locales`,
         languages: [
-          `en`,
           `de`,
           `fr`,
           `es`,
@@ -38,7 +37,7 @@ module.exports = {
           `zh-hans`,
           `zh-hant`,
         ],
-        defaultLanguage: `en`,
+        defaultLanguage: `es`,
 
         // you can pass any i18next options
         // pass following options to allow message content as a key
@@ -49,17 +48,17 @@ module.exports = {
           keySeparator: false,
           nsSeparator: false,
         },
-        pages: [
-          {
-            matchPath: "/:lang?/blog/:uid",
-            getLanguageFromPath: true,
-            excludeLanguages: ["es"],
-          },
-          {
-            matchPath: "/preview",
-            languages: ["en"],
-          },
-        ],
+        // pages: [
+        //   {
+        //     matchPath: "/:lang?/:uid",
+        //     getLanguageFromPath: true,
+        //     excludeLanguages: ["es"],
+        //   },
+        //   {
+        //     matchPath: "/preview",
+        //     languages: ["es"],
+        //   },
+        // ],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -69,8 +68,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `DH: Badge Database`,
+        short_name: `DH: Badges`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

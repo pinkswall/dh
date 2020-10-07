@@ -1,11 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-react-i18next"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage: React.Fc = () => (
+const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Home" />
     <h1>Hi people and Typescript!</h1>
